@@ -20,10 +20,11 @@ import static org.hamcrest.core.Is.is;
 public class MockitoExamplesTest {
 
   @Mock
-  Airline airlineMock;
+  private Airline airlineMock;
 
   @Test
   public void shouldCreateMockInstance() {
+    //weryfikujemy czy 'airlineMock' nie jest null-em
     MatcherAssert.assertThat(airlineMock, is(notNullValue()));
   }
 
@@ -89,6 +90,7 @@ public class MockitoExamplesTest {
 
   @Test
   public void whenExamples3() throws FlightException {
+    //given
     //Gdy wywołujemy metodę 'findFlight' z danymi parametrami
     //to zwróć jednoelementową listę, zawierająca 'flight'
     Flight flight = new Flight("ABC123", BigDecimal.TEN, "dep", "arr");
@@ -100,8 +102,11 @@ public class MockitoExamplesTest {
         .when(airlineMock)
         .findFlight("a", "b", LocalDate.now());*/
 
+    //when
     //Wywołujemy metodę 'findFlight' z takimi samymi parametrami jak powyżej
     List<Flight> flights = airlineMock.findFlight("a", "b", LocalDate.now());
+
+    //then
     //sprawdzamy czy zawartość utworzonej listy 'flights' jest taka jak oczekujemy
     MatcherAssert.assertThat(flights.size(), is(1));
     MatcherAssert.assertThat(flights.get(0), is(flight));
