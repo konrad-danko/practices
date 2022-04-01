@@ -9,7 +9,7 @@ public class Sorting {
 
     int min = 1;
     int max = 100;
-    int listSize = 100000000;
+    int listSize = (int) Math.pow(10, 8);
     long timeStart;
     long timeEnd;
 
