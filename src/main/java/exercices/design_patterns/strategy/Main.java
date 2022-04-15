@@ -4,38 +4,28 @@ import exercices.design_patterns.strategy.interfejsy.kwakanie.Kwacz;
 import exercices.design_patterns.strategy.interfejsy.kwakanie.NieKwacz;
 import exercices.design_patterns.strategy.kaczki.Kaczka;
 import exercices.design_patterns.strategy.kaczki.KrzyzowkaKaczka;
-import exercices.design_patterns.strategy.kaczki.ModelowaKaczka;
+import exercices.design_patterns.strategy.kaczki.GumowaKaczka;
 
 public class Main {
   public static void main(String[] args) {
     runAllMethods(new KrzyzowkaKaczka());
-    runAllMethods(new ModelowaKaczka());
+    runAllMethods(new GumowaKaczka());
 
-    System.out.println("-------");
     Kaczka krzyzowka = new KrzyzowkaKaczka();
-    krzyzowka.wyswietl();
-    krzyzowka.wykonajKwakanie();
-    krzyzowka.wykonajLatanie();
-    krzyzowka.plyn();
-
+    runAllMethods(krzyzowka);
     krzyzowka.setKwakanieInterfejs(new NieKwacz());
     krzyzowka.wykonajKwakanie();
 
-    System.out.println("-------");
-    Kaczka modelowa = new ModelowaKaczka();
-    modelowa.wyswietl();
-    modelowa.wykonajKwakanie();
-    modelowa.wykonajLatanie();
-    modelowa.plyn();
-
+    Kaczka modelowa = new GumowaKaczka();
+    runAllMethods(modelowa);
     modelowa.setKwakanieInterfejs(new Kwacz());
     modelowa.wykonajKwakanie();
   }
 
   private static void runAllMethods(Kaczka kaczka){
     kaczka.wyswietl();
-    kaczka.plyn();
     kaczka.wykonajKwakanie();
     kaczka.wykonajLatanie();
+    kaczka.plyn();
   }
 }
