@@ -7,19 +7,14 @@ public class Main {
   public static void main(String[] args) {
 
     DanePogodowe danePogodowe = new DanePogodowe();
-    WarunkiBiezacePanel warunkiBiezacePanel = new WarunkiBiezacePanel();
-    danePogodowe.zarejestrujObserwator(warunkiBiezacePanel);
+    WarunkiBiezacePanel warunkiBiezacePanel = new WarunkiBiezacePanel(danePogodowe);
 
-    //każde ustawienie nowej wartości powoduje
-    //wyświetlenie wszystkich bieżących wartości:
-    danePogodowe.ustawTemperature(25);
-    danePogodowe.ustawWilgotnosc(85);
-    danePogodowe.ustawCisnienie(985);
-    danePogodowe.ustawTemperature(28);
+    //ustawienie nowych wartości powoduje ich wyświetlenie
+    danePogodowe.ustawDane(25, 85, 985);
+    danePogodowe.ustawDane(28, 85, 985);
 
     danePogodowe.usunObserwator(warunkiBiezacePanel);
     //z tego kodu nic się już nie wyświetli:
-    danePogodowe.ustawWilgotnosc(80);
-    danePogodowe.ustawCisnienie(989);
+    danePogodowe.ustawDane(29, 85, 985);
   }
 }
