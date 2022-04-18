@@ -30,20 +30,12 @@ public class DanePogodowe implements Podmiot{
 
   @Override
   public void powiadomObserwatory() {
-    this.listaObserwatorow.forEach(o-> o.aktualizacja(this));
+    this.listaObserwatorow.forEach(Obserwator::aktualizacja);
   }
 
-  public void ustawTemperature(double temperatura){
+  public void ustawDane(double temperatura, double wilgotnosc, double cisnienie){
     this.temperatura = temperatura;
-    powiadomObserwatory();
-  }
-
-  public void ustawWilgotnosc(double wilgotnosc){
     this.wilgotnosc = wilgotnosc;
-    powiadomObserwatory();
-  }
-
-  public void ustawCisnienie(double cisnienie){
     this.cisnienie = cisnienie;
     powiadomObserwatory();
   }
