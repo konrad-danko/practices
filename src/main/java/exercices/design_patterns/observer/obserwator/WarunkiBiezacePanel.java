@@ -7,12 +7,18 @@ public class WarunkiBiezacePanel implements Obserwator, PanelInformacyjny{
   private double temperatura;
   private double wilgotnosc;
   private double cisnienie;
+  private DanePogodowe danePogodowe;
+
+  public WarunkiBiezacePanel(DanePogodowe danePogodowe) {
+    this.danePogodowe = danePogodowe;
+    this.danePogodowe.zarejestrujObserwator(this);
+  }
 
   @Override
-  public void aktualizacja(DanePogodowe dane) {
-    this.temperatura = dane.getTemperatura();
-    this.wilgotnosc = dane.getWilgotnosc();
-    this.cisnienie = dane.getCisnienie();
+  public void aktualizacja() {
+    this.temperatura = this.danePogodowe.getTemperatura();
+    this.wilgotnosc = this.danePogodowe.getWilgotnosc();
+    this.cisnienie = this.danePogodowe.getCisnienie();
     wyswietl();
   }
 
@@ -20,7 +26,7 @@ public class WarunkiBiezacePanel implements Obserwator, PanelInformacyjny{
   public void wyswietl() {
     System.out.println("\nWyświetlam bieżące wartości pomiarowe:");
     System.out.println("Temperatura: " + this.temperatura + " st C");
-    System.out.println("Wilgotnosc: " + this.wilgotnosc + " %");
-    System.out.println("Cisnienie: " + this.cisnienie + " hPa");
+    System.out.println("Wilgotność: " + this.wilgotnosc + " %");
+    System.out.println("Ciśnienie: " + this.cisnienie + " hPa");
   }
 }
