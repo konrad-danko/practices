@@ -1,6 +1,8 @@
-package exercices.design_patterns.decorator.restaurant;
+package exercices.design_patterns.decorator.restaurant.skladnik_glowny;
 
-public class DanieGlowne extends Danie{
+import exercices.design_patterns.decorator.restaurant.Danie;
+
+public class DanieGlowne extends Danie {
 
   public DanieGlowne(){
     this.opis = this.getClass().getSimpleName();
@@ -9,6 +11,7 @@ public class DanieGlowne extends Danie{
   public String getOpis() {
     return this.opis;
   }
+
   public double getKoszt() {
     return this.koszt;
   }
