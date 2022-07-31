@@ -2,7 +2,7 @@ package exercices.design_patterns.iterator;
 
 import java.util.List;
 
-public class Main {
+public class IteratorMain {
     public static void main(String[] args) {
         Menu nalesnikarniaMenu = new NalesnikarniaMenu();
         Menu obiadowoMenu = new ObiadowoMenu();
