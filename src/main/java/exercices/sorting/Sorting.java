@@ -19,22 +19,21 @@ public class Sorting {
     timeStart = System.currentTimeMillis();
     List<Integer> listToBeSorted = getRandomIntList(min, max, listSize);
     timeEnd = System.currentTimeMillis();
-    System.out.println("Creating a random list completed in " + (timeEnd-timeStart) + " ms:");
+    System.out.println("Creating a random list completed in " + (timeEnd-timeStart)/1000d + " s:");
 
     timeStart = System.currentTimeMillis();
     Set<Integer> set = new HashSet<>(listToBeSorted);
     timeEnd = System.currentTimeMillis();
-    System.out.println("Creating a set completed in " + (timeEnd-timeStart) + " ms: " + set);
+    System.out.println("Creating a set completed in " + (timeEnd-timeStart)/1000d + " s: " + set);
 
     timeStart = System.currentTimeMillis();
     Map<Integer, Long> map = listToBeSorted.stream()
         .collect(Collectors.groupingBy(s -> s, Collectors.counting()));
     timeEnd = System.currentTimeMillis();
-    System.out.println("Creating a map completed in " + (timeEnd-timeStart) + " ms: " + map);
+    System.out.println("Creating a map completed in " + (timeEnd-timeStart)/1000d + " s: " + map);
 
     System.out.println("Sum of values in the 'map': " + map.values().stream().mapToLong(x->x).sum());
     System.out.println("Stop");
-
 
 
 /*    //Collections.shuffle(listToBeSorted);
