@@ -1,6 +1,6 @@
 package exercices.design_patterns.decorator.star_cafe;
 
-public class Mleko extends exercices.design_patterns.decorator.star_cafe.SkladnikDekorator {
+public class Mleko extends SkladnikDekorator{
 
   public Mleko(Napoj napoj) {
     this.napoj = napoj;
