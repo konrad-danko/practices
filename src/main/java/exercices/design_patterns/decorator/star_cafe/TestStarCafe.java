@@ -16,5 +16,11 @@ public class TestStarCafe {
     napoj3 = new Czekolada(napoj3);
     napoj3 = new BitaSmietana(napoj3);
     System.out.println(napoj3.getOpis() + ", " + napoj3.koszt());
+
+    Napoj napoj5 = new StarCafeSpecial();
+    Napoj napoj6 = new MleczkoSojowe(napoj5);
+    Napoj napoj7 = new Czekolada(napoj6);
+    Napoj napoj8 = new BitaSmietana(napoj7);
+    System.out.println(napoj8.getOpis() + ", " + napoj8.koszt());
   }
 }

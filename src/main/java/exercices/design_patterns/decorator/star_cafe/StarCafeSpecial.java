@@ -1,6 +1,6 @@
 package exercices.design_patterns.decorator.star_cafe;
 
-public class StarCafeSpecial extends exercices.design_patterns.decorator.star_cafe.Napoj {
+public class StarCafeSpecial extends Napoj {
 
   public StarCafeSpecial(){
     this.opis = "Specjalność firmy - kawa Star Cafe Special";
