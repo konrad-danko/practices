@@ -1,0 +1,41 @@
+/*
+ * Comment for license information.
+ */
+/**
+ * Doc comment.
+ */
+@namespace("exercices.avro.customer")
+protocol CustomerAvroProtocol {
+
+	record Customer {
+		string id;
+		string name;
+		long pesel;
+		date birthday;
+		boolean isQualified;
+		array <string> phoneNumbers;
+		union {null, string} hobby;
+		map <string> someMap;
+		exercices.avro.customer.enums.Status status;
+		exercices.avro.customer.enums.ResidencyType residencyType;
+		array <exercices.avro.customer.address.Address> addresses;
+	}
+
+	@namespace("exercices.avro.customer.enums")
+	enum Status {
+		SILVER, GOLD, PLATINUM
+	}
+
+	@namespace("exercices.avro.customer.enums")
+	enum ResidencyType {
+		PL, EU, NON_EU
+	}
+
+	@namespace("exercices.avro.customer.address")
+	record Address {
+		string street;
+		int houseNumber;
+		string city;
+		string postCode;
+	}
+}

@@ -1,0 +1,88 @@
+{
+    "type": "record",
+    "name": "MessageEvent",
+    "namespace": "pl.softwareskill.event.message",
+    "fields": [
+        {
+            "name": "header",
+            "type": {
+                "type": "record",
+                "name": "HeaderRecord",
+                "namespace": "pl.softwareskill.event.header",
+                "fields": [
+                    {
+                        "name": "eventId",
+                        "type": "string",
+                        "doc": "Unique identifier of the event (UUID)"
+                    },
+                    {
+                        "name": "traceId",
+                        "type": "string",
+                        "doc": "Originating event id. If the event is an origin then [eventId == traceId]"
+                    },
+                    {
+                        "name": "createdAt",
+                        "type": "long",
+                        "doc": "Event time creation as the number of milliseconds since the epoch of 1970-01-01T00:00:00Z"
+                    },
+                    {
+                        "name": "tags",
+                        "type": [
+                            "null",
+                            {
+                                "type": "map",
+                                "values": "string"
+                            }
+                        ],
+                        "doc": "Additional [KEY=VALUE] tags for the event",
+                        "default": null
+                    }
+                ]
+            }
+        },
+        {
+            "name": "EventData",
+            "type": {
+                "type": "record",
+                "name": "MessageRecord",
+                "namespace": "pl.softwareskill.event.message",
+                "fields": [
+                    {
+                        "name": "messageId",
+                        "type": "string",
+                        "doc": "Unique identifier of the message (UUID)"
+                    },
+                    {
+                        "name": "priority",
+                        "type": [
+                            "null",
+                            "int"
+                        ],
+                        "doc": "Priority of message",
+                        "default": null
+                    },
+                    {
+                        "name": "params",
+                        "type": {
+                            "type": "array",
+                            "items": {
+                                "name": "Param",
+                                "type": "record",
+                                "fields": [
+                                    {
+                                        "name": "name",
+                                        "type": "string"
+                                    },
+                                    {
+                                        "name": "value",
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
