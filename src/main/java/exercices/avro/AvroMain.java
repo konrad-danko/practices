@@ -1,5 +1,6 @@
 package exercices.avro;
 
+import com.google.gson.Gson;
 import exercices.avro.customer.Customer;
 import exercices.avro.customer.address.Address;
 import exercices.avro.customer.enums.ResidencyType;
@@ -28,7 +29,7 @@ public class AvroMain {
 
 
   public static void main(String[] args) {
-    //System.out.println(new Gson().toJson(createCustomer()));
+    System.out.println(new Gson().toJson(createCustomer()));
     System.out.println(createCustomer());
   }
 
